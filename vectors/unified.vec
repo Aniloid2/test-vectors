@@ -1,0 +1,77 @@
+#TEAMF_DESIGN
+#UNIFIED TEST VECTOR
+
+<PinDef>
+A23,A22,A21,A20,  Q17,Q18,Q19,Q20,Q21,Q22,Q23,       A1,A2,         Q1,			A4,A3,A8,A7,A6,A5,A12,A11,A10,A9,Q5,Q4,Q3,Q2,	A15,A16,Q6,		A0,Q0,		A13,A14,A18,Q7,Q8,Q9,Q10,Q11,Q12,Q16,Q15,Q14,Q13	
+</PinDef>
+<TestVector>
+#Seven Segment Decoder				Ring Oscillator				ALU						Button Synchroniser	Inverter	  MSU
+#D3 D2 D1 D0	nA nB nC nD nE nF nG		enableOsc nResetOsc oscOut		 F  X    Y    XY				Go Stop Run		Input Output	Clock nReset
+#BEGIN ALL APART FROM SEQUENCER TEST
+  0  0  0  0 	0  0  0  0  0  0  1  		     0        0      0			 00 0011 0101 1000				0 0 0			0	1	00 X XXXXX X XXXX
+  0  0  0  1 	1  0  0  1  1  1  1 		     X        X      X			 00 1011 0110 0001				0 0 0			1	0	01 X XXXXX X XXXX
+  0  0  1  0 	0  0  1  0  0  1  0 		     X        X      X			 01 0101 0011 0010				0 0 0			X	X	C1 X XXXXX X XXXX
+  0  0  1  1 	0  0  0  0  1  1  0 		     X        X      X			 01 0011 0101 1110				0 1 0			X	X	C1 X XXXXX X XXXX
+  0  1  0  0 	1  0  0  1  1  0  0 		     X        X      X			 10 0101 0000 1010				0 0 0			X	X	C1 X XXXXX X XXXX
+  0  1  0  1 	0  1  0  0  1  0  0 		     X        X      X			 11 0101 1010 0000				1 0 1			X	X	C1 X XXXXX X XXXX
+  0  1  1  0 	0  1  0  0  0  0  0 		     X        X      X		         XX XXXX XXXX XXXX				0 0 1			X	X	C1 X XXXXX X XXXX
+  0  1  1  1 	0  0  0  1  1  1  1 		     X        X      X			 XX XXXX XXXX XXXX				1 0 1			X	X	C1 X XXXXX X XXXX
+  1  0  0  0 	0  0  0  0  0  0  0 		     X        X      X			 XX XXXX XXXX XXXX				0 0 1			X	X	C1 X XXXXX X XXXX
+  1  0  0  1 	0  0  0  0  1  0  0 		     X        X      X		         XX XXXX XXXX XXXX				0 1 0			X	X	C1 X XXXXX X XXXX
+  0  0  0  0    X  X  X  X  X  X  X  		     X        X      X		         XX XXXX XXXX XXXX			        0 0 0			X	X	C1 X XXXXX X XXXX
+  0  0  0  0    X  X  X  X  X  X  X  		     X        X      X		         XX XXXX XXXX XXXX			        1 0 1			X	X	C1 X XXXXX X XXXX
+  0  0  0  0    X  X  X  X  X  X  X  		     X        X      X		         XX XXXX XXXX XXXX			        0 0 0			X	X	C0 X XXXXX X XXXX
+#BEGIN SEQUENCER TEST ONLY																						
+  0  0  0  0    X  X  X  X  X  X  X  		     X        X      X		         XX XXXX XXXX XXXX				X X X			X	X	00 0 10000 1 0000
+  X  X  X  X    X  X  X  X  X  X  X  		     X        X      X		         XX XXXX XXXX XXXX				X X X			X	X	01 0 10000 1 0000
+  X  X  X  X    X  X  X  X  X  X  X  		     X        X      X		         XX XXXX XXXX XXXX				X X X			X	X	C1 0 01000 0 0000
+  X  X  X  X    X  X  X  X  X  X  X  		     X        X      X		         XX XXXX XXXX XXXX				X X X			X	X	C1 0 00100 1 0000
+  X  X  X  X    X  X  X  X  X  X  X  		     X        X      X		         XX XXXX XXXX XXXX				X X X			X	X	C1 0 00010 0 0000
+
+  X  X  X  X    X  X  X  X  X  X  X  		     X        X      X		         XX XXXX XXXX XXXX				X X X			X	X	C1 1 10000 1 0000
+  X  X  X  X    X  X  X  X  X  X  X  		     X        X      X		         XX XXXX XXXX XXXX				X X X			X	X	C1 1 01000 0 0000
+  X  X  X  X    X  X  X  X  X  X  X  		     X        X      X		         XX XXXX XXXX XXXX				X X X			X	X	C1 1 00100 1 0000
+  X  X  X  X    X  X  X  X  X  X  X  		     X        X      X		         XX XXXX XXXX XXXX				X X X			X	X	C1 1 00010 0 0001
+
+  X  X  X  X    X  X  X  X  X  X  X  		     X        X      X		         XX XXXX XXXX XXXX				X X X			X	X	C1 1 10000 1 0000
+  X  X  X  X    X  X  X  X  X  X  X  		     X        X      X		         XX XXXX XXXX XXXX				X X X			X	X	C1 1 01000 0 0000
+  X  X  X  X    X  X  X  X  X  X  X  		     X        X      X		         XX XXXX XXXX XXXX				X X X			X	X	C1 1 00100 1 0000
+  X  X  X  X    X  X  X  X  X  X  X  		     X        X      X		         XX XXXX XXXX XXXX				X X X			X	X	C1 1 00010 0 0010
+
+  X  X  X  X    X  X  X  X  X  X  X  		     X        X      X		         XX XXXX XXXX XXXX				X X X			X	X	C1 1 10000 1 0000
+  X  X  X  X    X  X  X  X  X  X  X  		     X        X      X		         XX XXXX XXXX XXXX				X X X			X	X	C1 1 01000 0 0000
+  X  X  X  X    X  X  X  X  X  X  X  		     X        X      X		         XX XXXX XXXX XXXX				X X X			X	X	C1 1 00100 1 0000
+  X  X  X  X    X  X  X  X  X  X  X  		     X        X      X		         XX XXXX XXXX XXXX				X X X			X	X	C1 1 00010 0 0011
+
+  X  X  X  X    X  X  X  X  X  X  X  		     X        X      X		         XX XXXX XXXX XXXX				X X X			X	X	C1 1 10000 1 0000
+  X  X  X  X    X  X  X  X  X  X  X  		     X        X      X		         XX XXXX XXXX XXXX				X X X			X	X	C1 1 01000 0 0000
+  X  X  X  X    X  X  X  X  X  X  X  		     X        X      X		         XX XXXX XXXX XXXX				X X X			X	X	C1 1 00100 1 0000
+  X  X  X  X    X  X  X  X  X  X  X  		     X        X      X		         XX XXXX XXXX XXXX				X X X			X	X	C1 1 00010 0 0100
+
+  X  X  X  X    X  X  X  X  X  X  X  		     X        X      X		         XX XXXX XXXX XXXX				X X X			X	X	C1 1 10000 1 0000
+  X  X  X  X    X  X  X  X  X  X  X  		     X        X      X		         XX XXXX XXXX XXXX				X X X			X	X	C1 1 01000 0 0000
+  X  X  X  X    X  X  X  X  X  X  X  		     X        X      X		         XX XXXX XXXX XXXX				X X X			X	X	C1 1 00100 1 0000
+  X  X  X  X    X  X  X  X  X  X  X  		     X        X      X		         XX XXXX XXXX XXXX				X X X			X	X	C1 1 00010 0 0101
+
+  X  X  X  X    X  X  X  X  X  X  X  		     X        X      X		         XX XXXX XXXX XXXX				X X X			X	X	C1 0 10000 1 0000
+  X  X  X  X    X  X  X  X  X  X  X  		     X        X      X		         XX XXXX XXXX XXXX				X X X			X	X	C1 0 01000 0 0000
+  X  X  X  X    X  X  X  X  X  X  X  		     X        X      X		         XX XXXX XXXX XXXX				X X X			X	X	C1 0 00100 1 0000
+  X  X  X  X    X  X  X  X  X  X  X  		     X        X      X		         XX XXXX XXXX XXXX				X X X			X	X	C1 0 00010 0 0101
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</TestVector>	
